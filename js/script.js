@@ -13,19 +13,16 @@ const getRandomColor = () => {
 
 const createBoxes = (amount) => {
   const numbers = [];
-  for (let i = 0; i < amount; i++) {
-    numbers.push(i);
-  }
-
+  numbers = numbers.map(() => amount);
   const elements = numbers.map((item) => {
     const size = 30 + item * 10;
-    const div = document.createElement("div");
-    div.style.width = `${size}px`;
-    div.style.height = `${size}px`;
-    div.style.backgroundColor = getRandomColor();
-    div.style.margin = "5px";
-    div.style.display = "inline-block";
-    return div;
+    const boxRef = document.createElement("div");
+    boxRef.style.width = `${size}px`;
+    boxRef.style.height = `${size}px`;
+    boxRef.style.backgroundColor = getRandomColor();
+    boxRef.style.margin = "5px";
+    boxRef.style.display = "inline-block";
+    return boxRef;
   });
 
   boxesRef.append(...elements);
