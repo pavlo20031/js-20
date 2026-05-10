@@ -13,7 +13,9 @@ const getRandomColor = () => {
 
 const createBoxes = (amount) => {
   const numbers = [];
-  numbers = numbers.map(() => amount);
+  for (let i = 0; i < amount; i++) {
+  numbers.push(i);
+  };
   const elements = numbers.map((item) => {
     const size = 30 + item * 10;
     const boxRef = document.createElement("div");
