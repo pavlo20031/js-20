@@ -1,3 +1,27 @@
+// Slider
+const galleryRef = document.querySelector(".gallery");
+const itemRef = document.querySelectorAll(".gallery li");
+let currentIndex = 0;
+
+function updateTransform() {
+  galleryRef.style.transform = `translateX(${-currentIndex * 320}px)`;
+  galleryRef.style.transition = "transform 0.8s ease";
+}
+
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "ArrowRight") {
+    currentIndex = (currentIndex + 1) % itemRef.length; // циклічно вперед
+    updateTransform();
+  }
+
+  if (evt.key === "ArrowLeft") {
+    currentIndex = (currentIndex - 1 + itemRef.length) % itemRef.length; // циклічно назад
+    updateTransform();
+  }
+});
+
+
+
 // Colection
 const inputRef = document.querySelector("#controls input");
 const renderBtn = document.querySelector('[data-action="render"]');
